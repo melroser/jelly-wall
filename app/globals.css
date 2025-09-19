@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* Base theme tokens from your existing file */
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+
+    /* Jelly tokens */
+    --jelly-pink: 255 137 164;
+    --jelly-lime: 156 246 138;
+    --jelly-cyan: 134 233 255;
+    --jelly-purple: 175 157 255;
+    --jelly-orange: 255 194 125;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Jelly Wall styles (place after body so they override when class is applied) */
+
+.bg-jelly-body {
+    background:
+        radial-gradient(60rem 30rem at 10% 10%, rgba(255,137,164,0.25), transparent 60%),
+        radial-gradient(60rem 30rem at 90% 90%, rgba(134,233,255,0.18), transparent 60%),
+        linear-gradient(180deg, rgba(16,18,28,1), rgba(14,16,24,1));
+}
+
+.jelly-blob {
+    background: radial-gradient(circle at 30% 30%, rgba(255,194,125,0.8), rgba(255,137,164,0.6));
+}
+.jelly-blob-2 {
+    background: radial-gradient(circle at 70% 70%, rgba(175,157,255,0.7), rgba(134,233,255,0.6));
+}
+
+.jelly-glossy {
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.08));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.6),
+        inset 0 -3px 12px rgba(0,0,0,0.2),
+        0 10px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+}
+
+.jelly-panel {
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 20px 60px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+}
+
+.jelly-card {
+    border-radius: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+}
+
+.bg-jelly-gradient {
+    background-image: linear-gradient(90deg,
+        rgb(var(--jelly-pink)),
+        rgb(var(--jelly-orange)),
+        rgb(var(--jelly-lime)),
+        rgb(var(--jelly-cyan)),
+        rgb(var(--jelly-purple))
+    );
+}
+
+/* Controls */
+.input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.input::placeholder { color: rgba(255,255,255,0.5); }
+.input:focus {
+    box-shadow: 0 0 0 4px rgba(134,233,255,0.25);
+    border-color: rgba(134,233,255,0.6);
+}
+
+.checkbox {
+    width: 1rem;
+    height: 1rem;
+    appearance: none;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    position: relative;
+}
+.checkbox:checked {
+    background: rgb(var(--jelly-cyan));
+    border-color: rgba(255,255,255,0.9);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform 120ms ease, box-shadow 200ms ease, opacity 200ms ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+    color: #0b1220;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,1),
+        0 10px 24px rgba(134,233,255,0.35),
+        0 2px 0 rgba(0,0,0,0.2);
+}
+.btn-primary:hover {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,1),
+        0 12px 28px rgba(156,246,138,0.35),
+        0 2px 0 rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    color: white;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+}
+
+.btn-yes {
+    color: #0b1220;
+    background: linear-gradient(180deg, rgba(156,246,138,1), rgba(134,233,255,0.9));
+    border: 1px solid rgba(255,255,255,0.85);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,1),
+        0 8px 20px rgba(156,246,138,0.4);
+}
+
+/* Backdrop blobs */
+.jelly-blob,
+.jelly-blob-2 {
+    filter: blur(0);
+}

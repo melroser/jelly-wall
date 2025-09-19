@@ -51,7 +51,7 @@ export default function Page() {
 
     useEffect(() => {
         fetchIdeas();
-        const id = setInterval(fetchIdeas, 5000);
+        const id = setInterval(fetchIdeas, 200000);
         return () => clearInterval(id);
     }, []);
 

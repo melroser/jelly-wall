@@ -431,8 +431,8 @@ function Footer() {
                     Built for rapid hackathon brainstorming • South Florida impact
                 </div>
                 <div className="text-white/80 text-sm flex items-center gap-2">
-                    <Sparkles className="w-4 h-4" />
-                    Jelly, shiny, and bouncy!
+                    <Sparkles className="w-4 h-4 text-yellow-400 jello-bounce" />
+                    <span className="gradient-text">Jelly, shiny, and bouncy!</span>
                 </div>
             </div>
         </footer>

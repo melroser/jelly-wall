@@ -1,171 +1,281 @@
 @import "tailwindcss";
 
-/* Base theme tokens from your existing file */
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-
-    /* Jelly tokens */
-    --jelly-pink: 255 137 164;
-    --jelly-lime: 156 246 138;
-    --jelly-cyan: 134 233 255;
-    --jelly-purple: 175 157 255;
-    --jelly-orange: 255 194 125;
-}
-
-@theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+  /* BRIGHT Jello Colors */
+  --jello-cherry: 348 100% 61%;      /* Hot Pink */
+  --jello-lime: 89 100% 55%;         /* Electric Lime */
+  --jello-orange: 27 100% 65%;       /* Bright Orange */
+  --jello-berry: 280 100% 68%;       /* Electric Purple */
+  --jello-blue: 195 100% 55%;        /* Cyan Blue */
+  --jello-lemon: 54 100% 58%;        /* Bright Yellow */
+  
+  --background: 240 20% 8%;
+  --foreground: 0 0% 98%;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, 
+    hsl(280 100% 10%) 0%, 
+    hsl(240 100% 8%) 50%, 
+    hsl(195 100% 10%) 100%);
+  min-height: 100vh;
 }
 
-/* Jelly Wall styles (place after body so they override when class is applied) */
-
-.bg-jelly-body {
-    background:
-        radial-gradient(60rem 30rem at 10% 10%, rgba(255,137,164,0.25), transparent 60%),
-        radial-gradient(60rem 30rem at 90% 90%, rgba(134,233,255,0.18), transparent 60%),
-        linear-gradient(180deg, rgba(16,18,28,1), rgba(14,16,24,1));
-}
-
-.jelly-blob {
-    background: radial-gradient(circle at 30% 30%, rgba(255,194,125,0.8), rgba(255,137,164,0.6));
-}
-.jelly-blob-2 {
-    background: radial-gradient(circle at 70% 70%, rgba(175,157,255,0.7), rgba(134,233,255,0.6));
-}
-
-.jelly-glossy {
-    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.08));
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.6),
-        inset 0 -3px 12px rgba(0,0,0,0.2),
-        0 10px 30px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
-}
-
+/* Jelly Glass Panels */
 .jelly-panel {
-    border-radius: 1.5rem;
-    padding: 1.25rem;
-    background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
-    border: 1px solid rgba(255,255,255,0.18);
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 20px 60px rgba(0,0,0,0.25);
-    backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, 
+    rgba(255, 0, 150, 0.15) 0%,
+    rgba(0, 255, 255, 0.1) 50%,
+    rgba(150, 0, 255, 0.15) 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, 
+    hsl(var(--jello-cherry)), 
+    hsl(var(--jello-blue)), 
+    hsl(var(--jello-lime))) 1;
+  box-shadow: 
+    inset 0 2px 20px rgba(255,255,255,0.2),
+    0 20px 40px rgba(255, 0, 255, 0.2),
+    0 0 80px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 1.5rem;
 }
 
 .jelly-card {
-    border-radius: 1.5rem;
-    padding: 1rem;
-    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-    border: 1px solid rgba(255,255,255,0.16);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 100, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    inset 0 2px 10px rgba(255,255,255,0.2),
+    0 10px 30px rgba(255, 0, 150, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 }
 
-.bg-jelly-gradient {
-    background-image: linear-gradient(90deg,
-        rgb(var(--jelly-pink)),
-        rgb(var(--jelly-orange)),
-        rgb(var(--jelly-lime)),
-        rgb(var(--jelly-cyan)),
-        rgb(var(--jelly-purple))
-    );
+.jelly-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    inset 0 2px 10px rgba(255,255,255,0.3),
+    0 15px 40px rgba(0, 255, 255, 0.3),
+    0 0 60px rgba(255, 0, 150, 0.2);
+  border-color: hsl(var(--jello-cyan));
 }
 
-/* Controls */
-.input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 1rem;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    outline: none;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-.input::placeholder { color: rgba(255,255,255,0.5); }
-.input:focus {
-    box-shadow: 0 0 0 4px rgba(134,233,255,0.25);
-    border-color: rgba(134,233,255,0.6);
+/* Bright Glossy Blobs */
+.jello-blob {
+  background: radial-gradient(circle at 30% 30%, 
+    hsl(var(--jello-cherry)) 0%, 
+    hsl(var(--jello-orange)) 50%,
+    transparent 70%);
+  animation: blob-float 20s ease-in-out infinite;
 }
 
-.checkbox {
-    width: 1rem;
-    height: 1rem;
-    appearance: none;
-    border-radius: 0.375rem;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.06);
-    position: relative;
-}
-.checkbox:checked {
-    background: rgb(var(--jelly-cyan));
-    border-color: rgba(255,255,255,0.9);
+.jello-blob-2 {
+  background: radial-gradient(circle at 70% 70%, 
+    hsl(var(--jello-blue)) 0%, 
+    hsl(var(--jello-lime)) 50%,
+    transparent 70%);
+  animation: blob-float 25s ease-in-out infinite reverse;
 }
 
-/* Buttons */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Shiny Glossy Effect */
+.jello-glossy {
+  background: linear-gradient(135deg,
+    hsl(var(--jello-cherry)) 0%,
+    hsl(var(--jello-blue)) 100%);
+  box-shadow:
+    inset 0 2px 10px rgba(255,255,255,0.6),
+    inset 0 -2px 10px rgba(0,0,0,0.3),
+    0 10px 40px hsl(var(--jello-cherry) / 0.4);
+}
+
+/* Bright Buttons */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: transform 120ms ease, box-shadow 200ms ease, opacity 200ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
-.btn:active { transform: scale(0.98); }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .btn-primary {
-    color: #0b1220;
-    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,1),
-        0 10px 24px rgba(134,233,255,0.35),
-        0 2px 0 rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, 
+    hsl(var(--jello-cherry)) 0%, 
+    hsl(var(--jello-orange)) 100%);
+  color: white;
+  box-shadow:
+    inset 0 2px 10px rgba(255,255,255,0.4),
+    inset 0 -2px 10px rgba(0,0,0,0.2),
+    0 10px 30px hsl(var(--jello-cherry) / 0.4),
+    0 0 40px hsl(var(--jello-orange) / 0.2);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
+
 .btn-primary:hover {
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,1),
-        0 12px 28px rgba(156,246,138,0.35),
-        0 2px 0 rgba(0,0,0,0.2);
-    transform: translateY(-1px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    inset 0 2px 10px rgba(255,255,255,0.5),
+    inset 0 -2px 10px rgba(0,0,0,0.2),
+    0 15px 40px hsl(var(--jello-cherry) / 0.5),
+    0 0 60px hsl(var(--jello-orange) / 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 .btn-ghost {
-    color: white;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.05) 100%);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 
+    inset 0 2px 10px rgba(255,255,255,0.1),
+    0 5px 20px rgba(255,255,255,0.1);
+}
+
+.btn-ghost:hover {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.25) 0%,
+    rgba(255,255,255,0.1) 100%);
+  border-color: hsl(var(--jello-cyan));
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 2px 10px rgba(255,255,255,0.2),
+    0 10px 30px hsl(var(--jello-cyan) / 0.3);
 }
 
 .btn-yes {
-    color: #0b1220;
-    background: linear-gradient(180deg, rgba(156,246,138,1), rgba(134,233,255,0.9));
-    border: 1px solid rgba(255,255,255,0.85);
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,1),
-        0 8px 20px rgba(156,246,138,0.4);
+  background: linear-gradient(135deg, 
+    hsl(var(--jello-lime)) 0%, 
+    hsl(var(--jello-blue)) 100%);
+  color: #0a0a0a;
+  box-shadow:
+    inset 0 2px 10px rgba(255,255,255,0.6),
+    inset 0 -2px 10px rgba(0,0,0,0.1),
+    0 10px 30px hsl(var(--jello-lime) / 0.5),
+    0 0 40px hsl(var(--jello-blue) / 0.3);
+  font-weight: 800;
 }
 
-/* Backdrop blobs */
-.jelly-blob,
-.jelly-blob-2 {
-    filter: blur(0);
+/* Bright Input */
+.input {
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,0,200,0.05) 100%);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  outline: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
+
+.input:focus {
+  box-shadow: 
+    0 0 0 4px hsl(var(--jello-cyan) / 0.3),
+    inset 0 2px 10px rgba(255,255,255,0.1),
+    0 10px 40px hsl(var(--jello-cyan) / 0.2);
+  border-color: hsl(var(--jello-cyan));
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.2) 0%,
+    rgba(0,255,255,0.1) 100%);
+}
+
+.input::placeholder { 
+  color: rgba(255,255,255,0.6); 
+  font-weight: 400;
+}
+
+/* Checkbox */
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  appearance: none;
+  border-radius: 0.5rem;
+  border: 2px solid hsl(var(--jello-cyan) / 0.5);
+  background: rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+  background: linear-gradient(135deg,
+    hsl(var(--jello-lime)) 0%,
+    hsl(var(--jello-cyan)) 100%);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 
+    0 0 20px hsl(var(--jello-lime) / 0.5),
+    inset 0 2px 5px rgba(255,255,255,0.4);
+}
+
+/* Animated gradient bar */
+.bg-jelly-gradient {
+  background: linear-gradient(90deg,
+    hsl(var(--jello-cherry)),
+    hsl(var(--jello-orange)),
+    hsl(var(--jello-lemon)),
+    hsl(var(--jello-lime)),
+    hsl(var(--jello-blue)),
+    hsl(var(--jello-berry))
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 3s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow effects */
+.glow-pink {
+  box-shadow: 0 0 40px hsl(var(--jello-cherry) / 0.6);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px hsl(var(--jello-blue) / 0.6);
+}
+
+.glow-lime {
+  box-shadow: 0 0 40px hsl(var(--jello-lime) / 0.6);
+}
+
+/* Bounce animation */
+@keyframes jello-bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+.jello-bounce {
+  animation: jello-bounce 2s infinite;
+}
+
+/* Footer gradient text */
+.gradient-text {
+  background: linear-gradient(90deg,
+    hsl(var(--jello-cherry)),
+    hsl(var(--jello-orange)),
+    hsl(var(--jello-blue)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+

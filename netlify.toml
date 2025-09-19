@@ -1,14 +1,14 @@
 [build]
-    command = "pnpm build"
-    publish = ".next"
-
-[[plugins]]
-    package = "@netlify/plugin-nextjs"
+  command = "pnpm build"
+  publish = ".next"
 
 [build.environment]
   NEXT_PRIVATE_TARGET = "server"
+  SECRETS_SCAN_OMIT_KEYS = "JELLY_AI_BASE_URL,JELLY_AI_MODEL"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api-:splat"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Remove the API redirect - it's breaking Next.js API routes!
+# The plugin handles this automatically
+

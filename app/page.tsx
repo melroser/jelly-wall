@@ -156,7 +156,7 @@ export default function Page() {
                     <div>
                         <h1 className="text-2xl font-extrabold tracking-tight drop-shadow-sm">Jelly Wall</h1>
                         <p className="text-white/70 text-xl">Hackathon Idea Generator by Devs.Miami</p>
-                        <p className="text-white/70 text-sm"> Drop an idea → AI makes it real → Vote for the best!  </p>
+                        <p className="text-white/70 text-sm"> Drop an idea → AI makes it more smarter → Vote for the Best!  </p>
                     </div>
                 </div>
                 <div>
@@ -199,15 +199,14 @@ export default function Page() {
                     </h2>
                     <ol className="text-white/90 space-y-1 text-sm">
                         <li>1. Type ANY idea 2-3 words</li>
-                        <li> ------ (e.g. “tenant rights app" ...  "tinder but for dogs”)</li>
-                        <li>2. Click "Develop" to let AI write it up into a complete pitch!</li>
+                        <li>2. Click Develop to let AI write it up into a complete pitch!</li>
                         <li>3. Vote for your favs on the Leaderboard</li>
                     </ol>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <input
                                 id="idea"
                                 type="text"
-                                placeholder="Type something short and lazy..."
+                                placeholder="Type something short (e.g. tenant rights app ... tinder but for like dogs)"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 className="flex-1 input"

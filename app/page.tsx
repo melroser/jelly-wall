@@ -152,9 +152,11 @@ export default function Page() {
                     >
                         <Sparkles className="w-6 h-6 text-white/90" />
                     </motion.div>
+
                     <div>
                         <h1 className="text-2xl font-extrabold tracking-tight drop-shadow-sm">Jelly Wall</h1>
-                        <p className="text-white/70 text-sm">Throw ideas. See what sticks. Build for South Florida.</p>
+                        <p className="text-white/70 text-xl">Hackathon Idea Generator by Devs.Miami</p>
+                        <p className="text-white/70 text-sm"> Drop an idea → AI makes it real → Vote for the best!  </p>
                     </div>
                 </div>
                 <div>
@@ -183,11 +185,24 @@ export default function Page() {
             </header>
 
             <main className="max-w-5xl mx-auto px-4 pb-28 space-y-10">
+
+
                 <section aria-label="Create idea" className="jelly-panel">
                     <div className="flex flex-col gap-4">
-                        <label htmlFor="idea" className="text-white/90 font-semibold">
-                            Your one-liner idea (e.g., “tenant rights app”)
-                        </label>
+                        
+                        
+
+
+                    <h2 className="text-lg font-bold mb-2 text-white flex items-center gap-2">
+                        <Rocket className="w-5 h-5" />
+                            How it works:
+                    </h2>
+                    <ol className="text-white/90 space-y-1 text-sm">
+                        <li>1. Type ANY idea 2-3 words</li>
+                        <li> ------ (e.g. “tenant rights app" ...  "tinder but for dogs”)</li>
+                        <li>2. Click "Develop" to let AI write it up into a complete pitch!</li>
+                        <li>3. Vote for your favs on the Leaderboard</li>
+                    </ol>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <input
                                 id="idea"
@@ -428,7 +443,7 @@ function Footer() {
         <footer className="fixed bottom-0 inset-x-0 z-10">
             <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
                 <div className="text-white/70 text-sm">
-                    Built for rapid hackathon brainstorming • South Florida impact
+                    Built for rapid brainstorming with friends. Perfect for Hackathons!
                 </div>
                 <div className="text-white/80 text-sm flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-yellow-400 jello-bounce" />
